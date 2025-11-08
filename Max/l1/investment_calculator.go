@@ -31,6 +31,7 @@ func main() {
 
 	var futureRealIncome float64 = futureIncome / math.Pow(1+inflationRate/100, yearsForInvestment)
 
-	fmt.Println(futureIncome)
-	fmt.Println(futureRealIncome)
+	fmt.Println(":::Result:::")
+	fmt.Println("Future value: ", futureIncome)
+	fmt.Println("Future value (inflation adj): ", futureRealIncome)
 }

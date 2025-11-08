@@ -33,4 +33,9 @@ func main() {
 	fmt.Print("Your EBT is: ")
 	fmt.Println(ebt)
 
+	fmt.Print("Your profit is: ")
+	fmt.Println(netIncome)
+
+	fmt.Print("Your ratio is: ")
+	fmt.Println(ratio)
 }
