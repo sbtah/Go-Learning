@@ -10,13 +10,20 @@ func main() {
 	// Constant variable:
 	const inflationRate float64 = 6.5
 
-	// Declared variable:
+	// Declared Investment Amount variable:
 	var investmentAmount float64
-
-	var yearsForInvestment float64 = 10.0
-	var expectedReturnRate float64 = 5.5
-
+	fmt.Print("Amount you want to invest: ")
 	fmt.Scan(&investmentAmount)
+
+	// Years for investment:
+	var yearsForInvestment float64
+	fmt.Print("For how many years: ")
+	fmt.Scan(&yearsForInvestment)
+
+	// Return ratio:
+	var expectedReturnRate float64
+	fmt.Print("Expected return rate: ")
+	fmt.Scan(&expectedReturnRate)
 
 	var powerResult float64 = math.Pow(1+expectedReturnRate/100, yearsForInvestment)
 
