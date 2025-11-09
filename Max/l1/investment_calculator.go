@@ -8,7 +8,7 @@ import (
 func main() {
 
 	// Constant variable:
-	const inflationRate float64 = 6.5
+	const inflationRate float64 = 2.41
 
 	// Declared Investment Amount variable:
 	var investmentAmount float64
@@ -31,7 +31,19 @@ func main() {
 
 	var futureRealIncome float64 = futureIncome / math.Pow(1+inflationRate/100, yearsForInvestment)
 
+	// var formattedFutureIncome string = fmt.Sprintf("Future Income: %.1f\n", futureIncome)
+
+	// var formattedFutureRealIncome string = fmt.Sprintf("Future Real Income: %.1f\n", futureRealIncome)
+
+	// Output information:
 	fmt.Println(":::Result:::")
-	fmt.Println("Future value: ", futureIncome)
-	fmt.Println("Future value (inflation adj): ", futureRealIncome)
+	// fmt.Println("Future value: ", futureIncome)
+	fmt.Printf(
+		`
+		Future Income: %.1f
+		Future Real Income: %.1f
+		`,
+		futureIncome, futureRealIncome,
+	)
+	// fmt.Print(formattedFutureIncome, formattedFutureRealIncome)
 }
