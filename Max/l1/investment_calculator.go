@@ -25,11 +25,9 @@ func main() {
 	fmt.Print("Expected return rate: ")
 	fmt.Scan(&expectedReturnRate)
 
-	var powerResult float64 = math.Pow(1+expectedReturnRate/100, yearsForInvestment)
+	var futureIncome float64 = calculateFutureValue(investmentAmount, expectedReturnRate, yearsForInvestment)
 
-	var futureIncome float64 = investmentAmount * powerResult
-
-	var futureRealIncome float64 = futureIncome / math.Pow(1+inflationRate/100, yearsForInvestment)
+	var futureRealIncome float64 = calculateFutureRealValue(investmentAmount, expectedReturnRate, yearsForInvestment, inflationRate)
 
 	// var formattedFutureIncome string = fmt.Sprintf("Future Income: %.1f\n", futureIncome)
 
@@ -46,4 +44,21 @@ func main() {
 		futureIncome, futureRealIncome,
 	)
 	// fmt.Print(formattedFutureIncome, formattedFutureRealIncome)
+}
+
+func outputText(text string) {
+	fmt.Print(text)
+}
+
+func calculateFutureValue(amount float64, returnRate float64, yearsOfInvestment float64) float64 {
+	var powerResult float64 = math.Pow(1+returnRate/100, yearsOfInvestment)
+	var futureValue float64 = amount * powerResult
+	return futureValue
+}
+
+func calculateFutureRealValue(amount float64, returnRate float64, yearsOfInvestment float64, inflationRate float64) float64 {
+	var futureValue float64 = calculateFutureValue(amount, returnRate, yearsOfInvestment)
+	var powerResult float64 = math.Pow(1+inflationRate/100, yearsOfInvestment)
+	var futureRealValue float64 = futureValue / powerResult
+	return futureRealValue
 }
